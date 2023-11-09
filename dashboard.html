@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Dashboard" ng-controller="DashboardCtrl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="app/dashboard.js"></script>
+
+    <title>User Dashboard</title>
+</head>
+
+<body  ng-cloak>
+    {{name}}
+    <section class="header">
+        <div>
+            <h1>User Dashboard</h1>
+        </div>
+    </section>
+    <section>
+
+        <div class="tableContainer">
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Phone</th>
+                    <th>Shipping Address</th>
+                    <th>Billing Address</th>
+                </tr>
+                <tr ng-if="users" ng-repeat="user in users">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.password}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.shipping_address}}</td>
+                    <td>{{user.billing_address}}</td>
+                    <td><button ng-click="editUser(user.id)">Edit</button></td>
+                    <td><button ng-click="deleteUser(user.id)">Delete</button></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
